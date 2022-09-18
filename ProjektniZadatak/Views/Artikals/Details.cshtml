@@ -1,0 +1,36 @@
+﻿@model ProjektniZadatak.Models.Artikal
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Artikal</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Artikalsifra)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Artikalsifra)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Artikalnaziv)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Artikalnaziv)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Jedinicamjere)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Jedinicamjere.Jedinicamjereid)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Artikalid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

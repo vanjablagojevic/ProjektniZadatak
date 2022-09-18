@@ -1,0 +1,44 @@
+﻿@model ProjektniZadatak.Models.Artikal
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Artikal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Artikalid" />
+            <div class="form-group">
+                <label asp-for="Jedinicamjereid" class="control-label"></label>
+                <select asp-for="Jedinicamjereid" class="form-control" asp-items="ViewBag.Jedinicamjereid"></select>
+                <span asp-validation-for="Jedinicamjereid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artikalsifra" class="control-label"></label>
+                <input asp-for="Artikalsifra" class="form-control" />
+                <span asp-validation-for="Artikalsifra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artikalnaziv" class="control-label"></label>
+                <input asp-for="Artikalnaziv" class="form-control" />
+                <span asp-validation-for="Artikalnaziv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
