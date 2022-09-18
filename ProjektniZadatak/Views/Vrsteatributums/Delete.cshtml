@@ -4,13 +4,12 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Da li ste sigurni da želite da izbrišete datu vrstu atributa?</h3>
 <div>
-    <h4>Vrsteatributum</h4>
+    <h4>Vrste atributa</h4>
     <hr />
-    <dl class="row">
+    <dl class="row" align="center">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Vrstaatributanaziv)
         </dt>
@@ -21,7 +20,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Vrstaatributaid" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Izbriši" class="btn btn-danger" /> |
+        <a asp-action="Index">Nazad na listu</a>
     </form>
 </div>

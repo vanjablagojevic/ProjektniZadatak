@@ -1,8 +1,32 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Tekst zadatka";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2 class="display-4">Tekst zadatka</h2>
+    <p class="text-md-start"><br />
+        Funkcionalni zahtjevi (User stories) <br /><br />
+        Potrebno je kreirati aplikaciju koja treba da obezbjedi sljedeće funkcionalnosti (preko REST API-a):<br />
+        (Opciono) Kao korisnik, želim da imam mogućnost da se registrujem na aplikaciju (unesem osnovne
+        podatke: ime, prezime, broj telefona, email adresu, lozinku, potvrdim lozinku),<br />
+        (Opciono) Kao korisnik, želim da imam mogućnost da se prijavim i postanem autorizovani korisnik
+        unosom email adrese i lozinke koju sam registrovao,<br />
+        Kao ulogovani korisnik, želim da imam mogućnost definisanja vrste atributa (Boja, visina, sirina,
+        težina...)<br />
+        Kao ulogovani korisnik, želim da imam mogućnost upravljanja artiklima. Za svaki artikl je
+        neophodno da, pored osnovnih podataka kao što su šifra, naziv, jedinica mjere i sl., takođe mogu
+        da pratim neogranicen broj atributa (Boja:crvena, Težina: 1kg...)<br />
+        Kao ulogovani korisnik, želim da imam mogućnost filtriranja artikala po svim poljima, ukljucujuci i
+        atribute (Želim da vidim sve artikle crvene boje).<br />
+        Kao ulogovani korisnik, želim da imam mogućnost dodavanja, brisanja i izmjene artikala.<br />
+        (Opciono) Kao ulogovani korisnik, želim da imam mogućnost odjaviti se.<br /><br />
+        Biblioteke i alati (Libraries and tools)<br /><br />
+        Backend:<br />
+        Relaciona baza (MSSQL , PostgreSQL ili MySQL)<br />
+        Preporučujemo ORM prilikom implementacije, po mogucnosti Entity framework<br />
+        JWT token autentifikacija i autorizacija (Ukoliko se radi opcioni dio)<br /><br />
+        .NET tehnologije<br />
+        Framework .NET 6.0<br />
+        C#<br />
+    </p>
 </div>

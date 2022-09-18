@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<ProjektniZadatak.Models.Vrsteatributum>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Vrste atributa";
 }
 
-<h1>Index</h1>
+<h1 class="text-center">Vrste atributa</h1><br />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<table class="table table-bordered table-dark text-center">
     <thead>
         <tr>
             <th>
@@ -25,11 +22,15 @@
                 @Html.DisplayFor(modelItem => item.Vrstaatributanaziv)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Vrstaatributaid">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Vrstaatributaid">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Vrstaatributaid">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Vrstaatributaid">Izmijeni</a> |
+                <a asp-action="Details" asp-route-id="@item.Vrstaatributaid">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.Vrstaatributaid">Izbriši</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<p>
+    <a asp-action="Create">Dodaj novu vrstu atributa</a>
+</p>

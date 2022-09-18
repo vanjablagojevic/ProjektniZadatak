@@ -1,14 +1,14 @@
 ﻿@model ProjektniZadatak.Models.Vrsteatributum
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Vrste atributa";
 }
 
-<h1>Create</h1>
+<h1>Dodaj vrstu atributa</h1><br />
 
-<h4>Vrsteatributum</h4>
+<h4>Vrste atributa</h4>
 <hr />
-<div class="row">
+<div class="row" align="center">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -16,16 +16,16 @@
                 <label asp-for="Vrstaatributanaziv" class="control-label"></label>
                 <input asp-for="Vrstaatributanaziv" class="form-control" />
                 <span asp-validation-for="Vrstaatributanaziv" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            </div><br />
+            <div class="form-group" align="center">
+                <input type="submit" value="Dodaj" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Nazad na listu</a>
 </div>
 
 @section Scripts {

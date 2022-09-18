@@ -1,13 +1,13 @@
 ﻿@model ProjektniZadatak.Models.Vrsteatributum
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalji";
 }
 
-<h1>Details</h1>
+<h1>Detailji</h1><br />
 
 <div>
-    <h4>Vrsteatributum</h4>
+    <h4>Vrste atributa</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -19,6 +19,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Vrstaatributaid">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Vrstaatributaid">Izmijeni</a> |
+    <a asp-action="Index">Nazad na listu</a>
 </div>

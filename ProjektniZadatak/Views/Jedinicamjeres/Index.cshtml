@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<ProjektniZadatak.Models.Jedinicamjere>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Jedinice mjere";
 }
 
-<h1>Index</h1>
+<h1 class="text-center">Jedinice mjere</h1>
+<br />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+
+<table class="table table-bordered table-dark text-center">
     <thead>
         <tr>
             <th>
@@ -31,11 +30,14 @@
                 @Html.DisplayFor(modelItem => item.Jedinicamjereskracenica)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Jedinicamjereid">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Jedinicamjereid">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Jedinicamjereid">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Jedinicamjereid">Izmijeni</a> |
+                <a asp-action="Details" asp-route-id="@item.Jedinicamjereid">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.Jedinicamjereid">Izbriši</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<p>
+    <a asp-action="Create">Dodaj novu jedinicu mjere</a>
+</p>

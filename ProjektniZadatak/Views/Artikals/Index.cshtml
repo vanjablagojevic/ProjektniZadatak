@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<ProjektniZadatak.Models.Artikal>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Artikli";
 }
 
-<h1>Index</h1>
+<h1 class="text-center">Artikli</h1>
+<br />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<table class="table table-bordered table-dark text-center">
+    <thead >
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Artikalsifra)
@@ -37,11 +35,15 @@
                 @Html.DisplayFor(modelItem => item.Jedinicamjere.Jedinicamjereskracenica)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Artikalid">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Artikalid">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Artikalid">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Artikalid">Izmijeni</a> |
+                <a asp-action="Details" asp-route-id="@item.Artikalid">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.Artikalid">Izbriši</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<p>
+    <a asp-action="Create">Dodaj novi artikal</a>
+</p>
