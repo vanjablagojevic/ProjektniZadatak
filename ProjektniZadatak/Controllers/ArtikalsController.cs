@@ -58,13 +58,13 @@ namespace ProjektniZadatak.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Artikalid,Jedinicamjereid,Artikalsifra,Artikalnaziv")] Artikal artikal)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(artikal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, "Jedinicamjereid", "Jedinicamjereid", artikal.Jedinicamjereid);
+            ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, nameof(Jedinicamjere.Jedinicamjereid), nameof(Jedinicamjere.Jedinicamjereskracenica), artikal.Jedinicamjereid);
             return View(artikal);
         }
 
@@ -81,7 +81,7 @@ namespace ProjektniZadatak.Controllers
             {
                 return NotFound();
             }
-            ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, "Jedinicamjereid", "Jedinicamjereid", artikal.Jedinicamjereid);
+            ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, nameof(Jedinicamjere.Jedinicamjereid), nameof(Jedinicamjere.Jedinicamjereskracenica), artikal.Jedinicamjereid);
             return View(artikal);
         }
 
@@ -97,7 +97,7 @@ namespace ProjektniZadatak.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
@@ -117,7 +117,7 @@ namespace ProjektniZadatak.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, "Jedinicamjereid", "Jedinicamjereid", artikal.Jedinicamjereid);
+            ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, nameof(Jedinicamjere.Jedinicamjereid), nameof(Jedinicamjere.Jedinicamjereskracenica), artikal.Jedinicamjereid);
             return View(artikal);
         }
 

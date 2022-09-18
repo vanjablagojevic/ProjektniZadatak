@@ -48,8 +48,8 @@ namespace ProjektniZadatak.Controllers
         // GET: Atributiartiklas/Create
         public IActionResult Create()
         {
-            ViewData["Artikalid"] = new SelectList(_context.Artikals, "Artikalid", "Artikalid");
-            ViewData["Vrstaatributaid"] = new SelectList(_context.Vrsteatributa, "Vrstaatributaid", "Vrstaatributaid");
+            ViewData["Artikalid"] = new SelectList(_context.Artikals, nameof(Artikal.Artikalid), nameof(Artikal.Artikalnaziv));
+            ViewData["Vrstaatributaid"] = new SelectList(_context.Vrsteatributa, nameof(Vrsteatributum.Vrstaatributaid), nameof(Vrsteatributum.Vrstaatributanaziv));
             return View();
         }
 
@@ -60,26 +60,26 @@ namespace ProjektniZadatak.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Artikalid,Vrstaatributaid,Vrijednostatributa")] Atributiartikla atributiartikla)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(atributiartikla);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Artikalid"] = new SelectList(_context.Artikals, "Artikalid", "Artikalid", atributiartikla.Artikalid);
-            ViewData["Vrstaatributaid"] = new SelectList(_context.Vrsteatributa, "Vrstaatributaid", "Vrstaatributaid", atributiartikla.Vrstaatributaid);
+            ViewData["Artikalid"] = new SelectList(_context.Artikals, nameof(Artikal.Artikalid), nameof(Artikal.Artikalnaziv), atributiartikla.Artikalid);
+            ViewData["Vrstaatributaid"] = new SelectList(_context.Vrsteatributa, nameof(Vrsteatributum.Vrstaatributaid), nameof(Vrsteatributum.Vrstaatributanaziv), atributiartikla.Vrstaatributaid);
             return View(atributiartikla);
         }
 
         // GET: Atributiartiklas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id,int? id2)
         {
-            if (id == null || _context.Atributiartiklas == null)
+            if (id == null || _context.Atributiartiklas == null || id2==null)
             {
                 return NotFound();
             }
 
-            var atributiartikla = await _context.Atributiartiklas.FindAsync(id);
+            var atributiartikla = await _context.Atributiartiklas.FindAsync(id,id2);
             if (atributiartikla == null)
             {
                 return NotFound();
@@ -94,14 +94,14 @@ namespace ProjektniZadatak.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Artikalid,Vrstaatributaid,Vrijednostatributa")] Atributiartikla atributiartikla)
+        public async Task<IActionResult> Edit(int id,int id2, [Bind("Artikalid,Vrstaatributaid,Vrijednostatributa")] Atributiartikla atributiartikla)
         {
-            if (id != atributiartikla.Artikalid)
+            if (id != atributiartikla.Artikalid && id2!= atributiartikla.Vrstaatributaid)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
@@ -127,7 +127,7 @@ namespace ProjektniZadatak.Controllers
         }
 
         // GET: Atributiartiklas/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id,int? id2)
         {
             if (id == null || _context.Atributiartiklas == null)
             {
@@ -137,7 +137,7 @@ namespace ProjektniZadatak.Controllers
             var atributiartikla = await _context.Atributiartiklas
                 .Include(a => a.Artikal)
                 .Include(a => a.Vrstaatributa)
-                .FirstOrDefaultAsync(m => m.Artikalid == id);
+                .FirstOrDefaultAsync(m => m.Artikalid == id && m.Vrstaatributaid==id2);
             if (atributiartikla == null)
             {
                 return NotFound();
@@ -149,13 +149,13 @@ namespace ProjektniZadatak.Controllers
         // POST: Atributiartiklas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id,int id2)
         {
             if (_context.Atributiartiklas == null)
             {
                 return Problem("Entity set 'ZadatakContext.Atributiartiklas'  is null.");
             }
-            var atributiartikla = await _context.Atributiartiklas.FindAsync(id);
+            var atributiartikla = await _context.Atributiartiklas.FindAsync(id,id2);
             if (atributiartikla != null)
             {
                 _context.Atributiartiklas.Remove(atributiartikla);

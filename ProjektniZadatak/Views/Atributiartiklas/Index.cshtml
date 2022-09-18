@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Vrstaatributa.Vrstaatributaid)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { id=item.Artikalid,id2=item.Vrstaatributaid }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Artikalid,id2=item.Vrstaatributaid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Artikalid,id2=item.Vrstaatributaid })
             </td>
         </tr>
 }
