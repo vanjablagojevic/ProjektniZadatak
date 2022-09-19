@@ -22,8 +22,12 @@ namespace ProjektniZadatak.Controllers
         public async Task<IActionResult> Index()
         {
             var zadatakContext = _context.Artikals.Include(a => a.Jedinicamjere);
+
+         
+
             return View(await zadatakContext.ToListAsync());
         }
+        
 
         // GET: Artikals/Details/5
         public async Task<IActionResult> Details(int? id)

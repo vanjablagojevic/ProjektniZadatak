@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace ProjektniZadatak.Models
 {
@@ -12,7 +11,6 @@ namespace ProjektniZadatak.Models
         }
 
         public int Vrstaatributaid { get; set; }
-        [DisplayName("Naziv")]
         public string Vrstaatributanaziv { get; set; } = null!;
 
         public virtual ICollection<Atributiartikla> Atributiartiklas { get; set; }

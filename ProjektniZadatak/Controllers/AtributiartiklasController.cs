@@ -26,9 +26,9 @@ namespace ProjektniZadatak.Controllers
         }
 
         // GET: Atributiartiklas/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, int? id2)
         {
-            if (id == null || _context.Atributiartiklas == null)
+            if (id == null || _context.Atributiartiklas == null || id2 == null)
             {
                 return NotFound();
             }
@@ -36,7 +36,7 @@ namespace ProjektniZadatak.Controllers
             var atributiartikla = await _context.Atributiartiklas
                 .Include(a => a.Artikal)
                 .Include(a => a.Vrstaatributa)
-                .FirstOrDefaultAsync(m => m.Artikalid == id);
+                .FirstOrDefaultAsync(m => m.Artikalid == id && m.Vrstaatributaid == id2);
             if (atributiartikla == null)
             {
                 return NotFound();
