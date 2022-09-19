@@ -19,11 +19,15 @@ namespace ProjektniZadatak.Controllers
         }
 
         // GET: Artikals
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var zadatakContext = _context.Artikals.Include(a => a.Jedinicamjere);
 
-         
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                zadatakContext = zadatakContext.Where(s => s.Artikalnaziv!.Contains(searchString) || s.Artikalsifra!.Contains(searchString) ).Include(a => a.Jedinicamjere);
+            }
+
 
             return View(await zadatakContext.ToListAsync());
         }
