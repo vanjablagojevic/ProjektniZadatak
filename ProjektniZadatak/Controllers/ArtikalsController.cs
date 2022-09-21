@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using ProjektniZadatak.Models;
 
 namespace ProjektniZadatak.Controllers
 {
+    
     public class ArtikalsController : Controller
     {
         private readonly ZadatakContext _context;
@@ -19,13 +21,14 @@ namespace ProjektniZadatak.Controllers
         }
 
         // GET: Artikals
+        
         public async Task<IActionResult> Index(string searchString)
         {
             var zadatakContext = _context.Artikals.Include(a => a.Jedinicamjere);
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                zadatakContext = zadatakContext.Where(s => s.Artikalnaziv!.Contains(searchString) || s.Artikalsifra!.Contains(searchString) ).Include(a => a.Jedinicamjere);
+                zadatakContext = zadatakContext.Where(s => s.Artikalnaziv!.Contains(searchString) || s.Artikalsifra!.Contains(searchString) || s.Jedinicamjere.Jedinicamjereskracenica!.Contains(searchString) || s.Jedinicamjere.Jedinicamjerenaziv!.Contains(searchString)).Include(a => a.Jedinicamjere);
             }
 
 
@@ -53,6 +56,7 @@ namespace ProjektniZadatak.Controllers
         }
 
         // GET: Artikals/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, nameof(Jedinicamjere.Jedinicamjereid), nameof(Jedinicamjere.Jedinicamjereskracenica));

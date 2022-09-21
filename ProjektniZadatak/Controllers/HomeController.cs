@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ProjektniZadatak.Models;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 
 namespace ProjektniZadatak.Controllers
 {
@@ -17,6 +19,11 @@ namespace ProjektniZadatak.Controllers
         {
             return View();
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {

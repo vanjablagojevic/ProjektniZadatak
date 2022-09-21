@@ -6,6 +6,12 @@
 
 <h1 class="text-center">Atributi artikla</h1>
 <br />
+<form asp-controller="Atributiartiklas" asp-action="Index" method="get" align="right">
+    <p>
+        Pretraži: <input type="text" name="SearchString" />
+        <input type="submit" value="OK" />
+    </p>
+</form>
 
 <table class="table table-bordered table-dark text-center">
     <thead>
@@ -29,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Vrijednostatributa)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Artikal.Artikalsifra)
+                @Html.DisplayFor(modelItem => item.Artikal.Artikalnaziv)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Vrstaatributa.Vrstaatributanaziv)

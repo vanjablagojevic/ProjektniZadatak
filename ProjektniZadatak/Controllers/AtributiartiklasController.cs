@@ -19,9 +19,14 @@ namespace ProjektniZadatak.Controllers
         }
 
         // GET: Atributiartiklas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var zadatakContext = _context.Atributiartiklas.Include(a => a.Artikal).Include(a => a.Vrstaatributa);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                zadatakContext = zadatakContext.Where(s => s.Vrstaatributa.Vrstaatributanaziv!.Contains(searchString) || s.Vrijednostatributa!.Contains(searchString) || s.Artikal.Artikalnaziv!.Contains(searchString) || s.Artikal.Artikalsifra!.Contains(searchString)).Include(a => a.Vrstaatributa);
+            }
+
             return View(await zadatakContext.ToListAsync());
         }
 

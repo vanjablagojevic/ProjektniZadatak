@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using ProjektniZadatak.Models;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,31 +11,36 @@ using System.Text;
 
 namespace ProjektniZadatak.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
+    [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        private readonly IConfiguration _config;
-        public LoginController(IConfiguration config)
+        private readonly JwtAuthenticationManager jwtAuthenticationManager;
+        public LoginController(JwtAuthenticationManager jwtAuthenticationManager)
         {
-            _config = config;
+            this.jwtAuthenticationManager = jwtAuthenticationManager;
+
         }
+
+    
 
         [AllowAnonymous]
-        [HttpPost]
-        public ActionResult Login([FromBody] UserLogin userLogin)
+        [HttpPost("Authorize")]
+        public IActionResult AuthUser([FromBody] UserLogin userLogin)
         {
-            var user = Authenticate(userLogin);
-            if (user != null)
+            var token = jwtAuthenticationManager.Authenticate(userLogin.Username, userLogin.Password);
+            if (token == null)
             {
-                var token = GenerateToken(user);
-                return Ok(token);
+                return Unauthorized();
             }
-
-            return NotFound("user not found");
+           // return RedirectToAction("Index", "Atributiartiklas");
+            return Ok(token);
         }
+    }
+}
 
-        // To generate token
+        /*// To generate token
         private string GenerateToken(UserModel user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
@@ -66,4 +73,5 @@ namespace ProjektniZadatak.Controllers
             return null;
         }
     }
-}
+}*/
+   
