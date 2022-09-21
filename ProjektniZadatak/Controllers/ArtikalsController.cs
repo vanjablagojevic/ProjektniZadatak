@@ -21,7 +21,7 @@ namespace ProjektniZadatak.Controllers
         }
 
         // GET: Artikals
-        
+      
         public async Task<IActionResult> Index(string searchString)
         {
             var zadatakContext = _context.Artikals.Include(a => a.Jedinicamjere);
@@ -56,7 +56,7 @@ namespace ProjektniZadatak.Controllers
         }
 
         // GET: Artikals/Create
-        [Authorize]
+       
         public IActionResult Create()
         {
             ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, nameof(Jedinicamjere.Jedinicamjereid), nameof(Jedinicamjere.Jedinicamjereskracenica));

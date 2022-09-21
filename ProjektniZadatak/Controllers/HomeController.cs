@@ -19,7 +19,8 @@ namespace ProjektniZadatak.Controllers
         {
             return View();
         }
-        public IActionResult Login()
+
+       public IActionResult Login()
         {
             return View();
         }

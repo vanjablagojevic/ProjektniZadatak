@@ -41,9 +41,9 @@
                 @Html.DisplayFor(modelItem => item.Jedinicamjere.Jedinicamjereskracenica)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Artikalid">Izmijeni</a> |
-                <a asp-action="Details" asp-route-id="@item.Artikalid">Detalji</a> |
-                <a asp-action="Delete" asp-route-id="@item.Artikalid">Izbriši</a>
+                <a class="text-white" asp-action="Edit" asp-route-id="@item.Artikalid">Izmijeni</a> |
+                <a class="text-white"  asp-action="Details" asp-route-id="@item.Artikalid">Detalji</a> |
+                <a class="text-white" asp-action="Delete" asp-route-id="@item.Artikalid">Izbriši</a>
             </td>
         </tr>
 }
@@ -51,5 +51,5 @@
 </table>
 
 <p>
-    <a asp-action="Create">Dodaj novi artikal</a>
+    <a class="text-white" asp-action="Create">Dodaj novi artikal</a>
 </p>

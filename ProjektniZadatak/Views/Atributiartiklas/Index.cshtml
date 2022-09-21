@@ -13,7 +13,7 @@
     </p>
 </form>
 
-<table class="table table-bordered table-dark text-center">
+<table class="table table-bordered table-dark text-center ">
     <thead>
         <tr>
             <th>
@@ -40,10 +40,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Vrstaatributa.Vrstaatributanaziv)
             </td>
-            <td>
-                @Html.ActionLink("Izmijeni", "Edit", new { id=item.Artikalid,id2=item.Vrstaatributaid }) |
-                    @Html.ActionLink("Detalji", "Details", new { id=item.Artikalid,id2=item.Vrstaatributaid }) |
-                    @Html.ActionLink("Izbriši", "Delete", new { id=item.Artikalid,id2=item.Vrstaatributaid })
+            <td  >
+                    @Html.ActionLink("Izmijeni", "Edit", new { id=item.Artikalid,id2=item.Vrstaatributaid },new { @class = "text-white" }) |
+                    @Html.ActionLink("Detalji", "Details", new { id=item.Artikalid,id2=item.Vrstaatributaid },new { @class = "text-white" }) |
+                    @Html.ActionLink("Izbriši", "Delete", new { id=item.Artikalid,id2=item.Vrstaatributaid },new { @class = "text-white" })
             </td>
         </tr>
 }
@@ -51,5 +51,5 @@
 </table>
 
 <p>
-    <a asp-action="Create">Dodaj novi atribut</a>
+    <a class="text-white" asp-action="Create">Dodaj novi atribut</a>
 </p>

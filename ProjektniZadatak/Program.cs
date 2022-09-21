@@ -70,6 +70,21 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
+
+app.UseStatusCodePages(async context =>
+{
+    var response = context.HttpContext.Response;
+
+    if (response.StatusCode == (int)HttpStatusCode.Unauthorized ||
+        response.StatusCode == (int)HttpStatusCode.Forbidden)
+    {
+        response.Redirect("/Home/Error");
+    }
+    else if (response.StatusCode == (int)HttpStatusCode.OK)
+        response.Redirect("/Artiklas");
+});
+
+
 app.UseAuthorization();
 
 app.UseHttpsRedirection();

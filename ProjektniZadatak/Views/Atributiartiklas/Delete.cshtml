@@ -9,9 +9,9 @@
 <h3>Da li ste sigurni da želite da izbrišete dati atribut?</h3>
 <br />
 <div>
-    <h4>Atributi artikla</h4>
+    <h4 >Atributi artikla</h4>
     <hr />
-    <dl class="row">
+    <dl >
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Vrijednostatributa)
         </dt>
@@ -36,6 +36,6 @@
         <input type="hidden" asp-for="Artikalid" />
         <input type="hidden" asp-for="Vrstaatributaid" />
         <input type="submit" value="Izbriši" class="btn btn-danger" /> |
-        <a asp-action="Index">Nazad na listu</a>
+        <a class="text-white"  asp-action="Index">Nazad na listu</a>
     </form>
 </div>

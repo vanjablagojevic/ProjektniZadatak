@@ -22,9 +22,9 @@
                 @Html.DisplayFor(modelItem => item.Vrstaatributanaziv)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Vrstaatributaid">Izmijeni</a> |
-                <a asp-action="Details" asp-route-id="@item.Vrstaatributaid">Detalji</a> |
-                <a asp-action="Delete" asp-route-id="@item.Vrstaatributaid">Izbriši</a>
+                <a class="text-white" asp-action="Edit" asp-route-id="@item.Vrstaatributaid">Izmijeni</a> |
+                    <a class="text-white" asp-action="Details" asp-route-id="@item.Vrstaatributaid">Detalji</a> |
+                    <a class="text-white" asp-action="Delete" asp-route-id="@item.Vrstaatributaid">Izbriši</a>
             </td>
         </tr>
 }
@@ -32,5 +32,5 @@
 </table>
 
 <p>
-    <a asp-action="Create">Dodaj novu vrstu atributa</a>
+    <a class="text-white" asp-action="Create">Dodaj novu vrstu atributa</a>
 </p>

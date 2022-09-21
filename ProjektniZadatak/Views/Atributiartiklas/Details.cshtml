@@ -7,9 +7,9 @@
 <h1>Detalji</h1>
 
 <div>
-    <h4>Atributi artikla</h4>
+    <h4 class="row">Atributi artikla</h4>
     <hr />
-    <dl class="row">
+    <dl >
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Vrijednostatributa)
         </dt>
@@ -30,7 +30,7 @@
         </dd>
     </dl>
 </div>
-<div>
+<div class="text-white">
     @Html.ActionLink("Izmijeni", "Edit", new { id=Model.Artikalid,id2=Model.Vrstaatributaid }) |
-    <a asp-action="Index">Nazad na listu</a>
+    <a class="text-white" asp-action="Index">Nazad na listu</a>
 </div>
