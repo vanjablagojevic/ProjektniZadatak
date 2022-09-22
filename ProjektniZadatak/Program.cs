@@ -41,19 +41,7 @@ builder.Services.AddAuthentication(x =>
 builder.Services.AddSingleton<JwtAuthenticationManager>(new JwtAuthenticationManager(key));
 
 
-//jwt authentication
-/*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-    };
-});*/
+
 var app = builder.Build();
 
 
@@ -71,6 +59,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 
+/*
 app.UseStatusCodePages(async context =>
 {
     var response = context.HttpContext.Response;
@@ -82,15 +71,13 @@ app.UseStatusCodePages(async context =>
     }
     else if (response.StatusCode == (int)HttpStatusCode.OK)
         response.Redirect("/Artiklas");
-});
+});*/
 
 
 app.UseAuthorization();
 
 app.UseHttpsRedirection();
-////app.MapControllerRoute(
-////    name: "default",
-////    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.UseEndpoints(endpoints =>
 {

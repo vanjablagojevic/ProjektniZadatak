@@ -20,6 +20,7 @@ namespace ProjektniZadatak.Controllers
         public LoginController(JwtAuthenticationManager jwtAuthenticationManager)
         {
             this.jwtAuthenticationManager = jwtAuthenticationManager;
+           
 
         }
         
@@ -36,6 +37,7 @@ namespace ProjektniZadatak.Controllers
             return Ok(token);
            
         }
+        
     }
 
 }

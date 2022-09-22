@@ -30,7 +30,7 @@
         </dd>
     </dl>
 </div>
-<div class="text-white">
-    @Html.ActionLink("Izmijeni", "Edit", new { id=Model.Artikalid,id2=Model.Vrstaatributaid }) |
+<div >
+    @Html.ActionLink("Izmijeni", "Edit", new { id=Model.Artikalid,id2=Model.Vrstaatributaid },new { @class = "text-white" }) |
     <a class="text-white" asp-action="Index">Nazad na listu</a>
 </div>

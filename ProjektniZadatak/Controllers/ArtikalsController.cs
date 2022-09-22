@@ -77,6 +77,7 @@ namespace ProjektniZadatak.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Jedinicamjereid"] = new SelectList(_context.Jedinicamjeres, nameof(Jedinicamjere.Jedinicamjereid), nameof(Jedinicamjere.Jedinicamjereskracenica), artikal.Jedinicamjereid);
+          
             return View(artikal);
         }
 
