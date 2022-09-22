@@ -70,7 +70,7 @@ namespace ProjektniZadatak.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Artikalid,Jedinicamjereid,Artikalsifra,Artikalnaziv")] Artikal artikal)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Add(artikal);
                 await _context.SaveChangesAsync();
@@ -110,7 +110,7 @@ namespace ProjektniZadatak.Controllers
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {

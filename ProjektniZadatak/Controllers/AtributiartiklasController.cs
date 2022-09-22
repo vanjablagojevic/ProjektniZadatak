@@ -65,7 +65,7 @@ namespace ProjektniZadatak.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Artikalid,Vrstaatributaid,Vrijednostatributa")] Atributiartikla atributiartikla)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Add(atributiartikla);
                 await _context.SaveChangesAsync();
@@ -106,7 +106,7 @@ namespace ProjektniZadatak.Controllers
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {

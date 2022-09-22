@@ -14,8 +14,8 @@ namespace ProjektniZadatak.Models
         [Display(Name = "Vrijednost atributa")]
         public string Vrijednostatributa { get; set; } = null!;
 
-        public virtual Artikal Artikal { get; set; } = null!;
+        public virtual Artikal? Artikal { get; set; }
         [Display(Name = "Vrsta atributa")]
-        public virtual Vrsteatributum Vrstaatributa { get; set; } = null!;
+        public virtual Vrsteatributum? Vrstaatributa { get; set; } 
     }
 }

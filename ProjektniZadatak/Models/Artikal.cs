@@ -21,7 +21,7 @@ namespace ProjektniZadatak.Models
         public string Artikalnaziv { get; set; } = null!;
 
         [Display(Name = "Jedinica mjere")]
-        public virtual Jedinicamjere Jedinicamjere { get; set; } = null!;
+        public virtual Jedinicamjere? Jedinicamjere { get; set; } 
         public virtual ICollection<Atributiartikla> Atributiartiklas { get; set; }
     }
 }
